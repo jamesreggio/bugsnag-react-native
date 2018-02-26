@@ -97,7 +97,7 @@ export class Client {
     const report = new Report(this.config.apiKey, error, _handledState);
     report.addMetadata('app', 'codeBundleId', this.config.codeBundleId);
 
-    for (callback of this.config.beforeSendCallbacks) {
+    for (let callback of this.config.beforeSendCallbacks) {
       if (callback(report, error) === false) {
         if (postSendCallback)
           postSendCallback(false);
